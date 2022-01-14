@@ -1,13 +1,18 @@
 package com.devsuperior.dsmovie.entities;
 
+import lombok.Data;
+
+import java.io.Serial;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Data
 @Embeddable
 public class ScorePk implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
@@ -18,7 +23,7 @@ public class ScorePk implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	public ScorePk() {
+	/*public ScorePk() {
 	}
 
 	public Movie getMovie() {
@@ -36,5 +41,5 @@ public class ScorePk implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+*/
 }
