@@ -1,15 +1,21 @@
 package com.devsuperior.dsmovie.entities;
 
+
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "tb_movie")
-public class Movie implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Movie{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,10 +24,16 @@ public class Movie implements Serializable {
     private Integer count;
     private String image;
 
-    /*public Movie() {
-    }
+    @OneToMany(mappedBy = "id.movie")
+    private Set<Score> scores = new HashSet<>();
 
-    public Movie(Long id, String title, Double score, Integer count, String image) {
+    public Set<Score> getScores() {
+        return scores;
+    }
+    public  Movie(){
+
+    }
+    /*public Movie(Long id, String title, Double score, Integer count, String image) {
 
         this.id = id;
         this.title = title;
