@@ -1,6 +1,8 @@
 package com.devsuperior.dsmovie.entities;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-@Data
+
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_score")
 public class Score {
@@ -18,9 +22,15 @@ public class Score {
 	private ScorePk id = new ScorePk();
 	private Double value;
 	
-	/*public Score() {
+	public Score() {
 	}
-	
+
+	public void setMovie(Movie movie){
+		id.setMovie(movie);      }
+	public void  setUser(User user){
+		id.setUser(user);
+	}
+	/*
 	public void setMovie(Movie movie) {
 		id.setMovie(movie); // Associar o Filme com o Score
 	}
